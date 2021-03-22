@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Controller.FlightControll"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="False"
+             xmlns:local="clr-namespace:Controller.MarkupExtension">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Flight Settings" Command="{Binding GoToFlightSettingsCommand}"/>
+        <ToolbarItem Text="Camera Settings" Command="{Binding GoToCameraSettingsCommand}"/>
+        <ToolbarItem Text="Show Pictures" Command="{Binding ShowPicturesCommand}"/>
+        <ToolbarItem Text="Get Picture" Command="{Binding GetPictureCommand}"/>
+        <ToolbarItem Text="Disconnect" Command="{Binding DisconnectCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <AbsoluteLayout>
+
+        <Image x:Name="StreamImage" 
+               Source="{local:EmbeddedImage Controller.Images.coala.jpg}" 
+               Aspect="AspectFill"
+               AbsoluteLayout.LayoutBounds="1,1,1,1" 
+               AbsoluteLayout.LayoutFlags="All" />
+
+        <AbsoluteLayout x:Name="ButtonsLayout"
+                    IsEnabled="False" IsVisible="False"
+                    AbsoluteLayout.LayoutBounds="0,1,700,100"
+                    AbsoluteLayout.LayoutFlags="PositionProportional">
+
+            <AbsoluteLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="Android" Value="0,0,0,0"/>
+                    <On Platform="iOS" Value="5,-7,0,0"/>
+                </OnPlatform>
+            </AbsoluteLayout.Padding>
+
+            <StackLayout Orientation="Horizontal">
+
+                <StackLayout Orientation="Vertical">
+
+                    <Button Text="Left" BackgroundColor="#77000000" BorderRadius="20" 
+                        TextColor="White" BorderColor="White" BorderWidth="3"
+                        Command="{Binding FlyLeftCommand}">
+
+                        <Button.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="100"/>
+                                <On Platform="iOS" Value="100"/>
+                            </OnPlatform>
+                        </Button.WidthRequest>
+
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="25"/>
+                                <On Platform="iOS" Value="25"/>
+                            </OnPlatform>
+                        </Button.FontSize>
+
+                    </Button>
+
+                    <Button Text="Get Up" BackgroundColor="#77000000" BorderRadius="20" 
+                        TextColor="White" BorderColor="White" BorderWidth="3"
+                        Command="{Binding GetUpCommand}">
+
+                        <Button.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="100"/>
+                                <On Platform="iOS" Value="100"/>
+                            </OnPlatform>
+                        </Button.WidthRequest>
+
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="25"/>
+                                <On Platform="iOS" Value="25"/>
+                            </OnPlatform>
+                        </Button.FontSize>
+
+                    </Button>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical">
+
+                    <Button Text="Forward" BackgroundColor="#77000000" BorderRadius="20"
+                        TextColor="White" BorderColor="White" BorderWidth="3"
+                        Command="{Binding ForwardCommand}">
+
+                        <Button.Padding>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="10"/>
+                            </OnPlatform>
+                        </Button.Padding>
+
+                        <Button.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="100"/>
+                                <On Platform="iOS" Value="100"/>
+                            </OnPlatform>
+                        </Button.WidthRequest>
+
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="25"/>
+                                <On Platform="iOS" Value="25"/>
+                            </OnPlatform>
+                        </Button.FontSize>
+
+                    </Button>
+
+                    <Button Text="Backward" BackgroundColor="#77000000" BorderRadius="20"
+                        TextColor="White" BorderColor="White" BorderWidth="3"
+                        Command="{Binding BackwardCommand}">
+
+                        <Button.Padding>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="10"/>
+                            </OnPlatform>
+                        </Button.Padding>
+
+                        <Button.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="100"/>
+                                <On Platform="iOS" Value="100"/>
+                            </OnPlatform>
+                        </Button.WidthRequest>
+
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="25"/>
+                                <On Platform="iOS" Value="25"/>
+                            </OnPlatform>
+                        </Button.FontSize>
+
+                    </Button>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical">
+
+                    <Button Text="Right" BackgroundColor="#77000000" BorderRadius="20"
+                        TextColor="White" BorderColor="White" BorderWidth="3"
+                        Command="{Binding FlyRightCommand}">
+
+                        <Button.Padding>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="10"/>
+                            </OnPlatform>
+                        </Button.Padding>
+
+                        <Button.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="100"/>
+                                <On Platform="iOS" Value="100"/>
+                            </OnPlatform>
+                        </Button.WidthRequest>
+
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="25"/>
+                                <On Platform="iOS" Value="25"/>
+                            </OnPlatform>
+                        </Button.FontSize>
+
+                    </Button>
+
+                    <Button Text="Land" BackgroundColor="#77000000" BorderRadius="20" 
+                        TextColor="White" BorderColor="White" BorderWidth="3"
+                        Command="{Binding LandCommand}">
+
+                        <Button.Padding>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="10"/>
+                            </OnPlatform>
+                        </Button.Padding>
+
+                        <Button.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="100"/>
+                                <On Platform="iOS" Value="100"/>
+                            </OnPlatform>
+                        </Button.WidthRequest>
+
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="25"/>
+                                <On Platform="iOS" Value="25"/>
+                            </OnPlatform>
+                        </Button.FontSize>
+
+                    </Button>
+                </StackLayout>
+
+            </StackLayout>
+
+
+            <StackLayout Orientation="Horizontal"
+                             VerticalOptions="EndAndExpand"
+                         AbsoluteLayout.LayoutBounds="0.6,1,160,100"
+                    AbsoluteLayout.LayoutFlags="PositionProportional">
+
+                <Button Text="Photo" BackgroundColor="#77000000" BorderRadius="20"
+                        TextColor="White" BorderColor="Red" BorderWidth="3"
+                        Command="{Binding TakeAPictureCommand}">
+
+                        <Button.Padding>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="10"/>
+                            </OnPlatform>
+                        </Button.Padding>
+
+                        <Button.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="100"/>
+                                <On Platform="iOS" Value="100"/>
+                            </OnPlatform>
+                        </Button.WidthRequest>
+
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="25"/>
+                                <On Platform="iOS" Value="25"/>
+                            </OnPlatform>
+                        </Button.FontSize>
+
+                    </Button>
+
+            </StackLayout>
+
+
+
+            <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="EndAndExpand"
+                         VerticalOptions="EndAndExpand"
+                         AbsoluteLayout.LayoutBounds="0.85,1,160,100"
+                    AbsoluteLayout.LayoutFlags="PositionProportional">
+
+                <Button Text="Right" BackgroundColor="#77000000" BorderRadius="20"
+                        TextColor="White" BorderColor="Green" BorderWidth="3"
+                        Command="{Binding RoundRightCommand}">
+
+                        <Button.Padding>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="10"/>
+                            </OnPlatform>
+                        </Button.Padding>
+
+                        <Button.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="100"/>
+                                <On Platform="iOS" Value="100"/>
+                            </OnPlatform>
+                        </Button.WidthRequest>
+
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="25"/>
+                                <On Platform="iOS" Value="25"/>
+                            </OnPlatform>
+                        </Button.FontSize>
+
+                    </Button>
+
+                <Button Text="Left" BackgroundColor="#77000000" BorderRadius="20"
+                        TextColor="White" BorderColor="Green" BorderWidth="3"
+                        Command="{Binding RoundLeftCommand}">
+
+                        <Button.Padding>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="10"/>
+                            </OnPlatform>
+                        </Button.Padding>
+
+                        <Button.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="100"/>
+                                <On Platform="iOS" Value="100"/>
+                            </OnPlatform>
+                        </Button.WidthRequest>
+
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="25"/>
+                                <On Platform="iOS" Value="25"/>
+                            </OnPlatform>
+                        </Button.FontSize>
+
+                    </Button>
+
+            </StackLayout>
+
+        </AbsoluteLayout>
+
+        
+        <AbsoluteLayout x:Name="AccelerometerLayout"
+                    IsEnabled="True" IsVisible="True"
+                    AbsoluteLayout.LayoutBounds="0,1.255,0,1"
+                        AbsoluteLayout.LayoutFlags="PositionProportional">
+
+            <AbsoluteLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="Android" Value="10,-2,0,0"/>
+                    <On Platform="iOS" Value="5,-10,0,0"/>
+                </OnPlatform>
+            </AbsoluteLayout.Padding>
+
+            <StackLayout Orientation="Horizontal">
+                
+                <StackLayout Orientation="Horizontal">
+
+                    <Button Text="Get Up" BackgroundColor="#77000000" BorderRadius="20" 
+                        TextColor="White" BorderColor="White" BorderWidth="3"
+                        Command="{Binding GetUpCommand}">
+
+                        <Button.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="110"/>
+                                <On Platform="iOS" Value="100"/>
+                            </OnPlatform>
+                        </Button.WidthRequest>
+
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="20"/>
+                                <On Platform="iOS" Value="25"/>
+                            </OnPlatform>
+                        </Button.FontSize>
+
+                    </Button>
+
+                    <Button Text="Land" BackgroundColor="#77000000" BorderRadius="20" 
+                        TextColor="White" BorderColor="White" BorderWidth="3"
+                        Command="{Binding LandCommand}">
+
+                        <Button.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="110"/>
+                                <On Platform="iOS" Value="100"/>
+                            </OnPlatform>
+                        </Button.WidthRequest>
+
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android" Value="20"/>
+                                <On Platform="iOS" Value="25"/>
+                            </OnPlatform>
+                        </Button.FontSize>
+
+                    </Button>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal"
+                     AbsoluteLayout.LayoutBounds="1,1.5,100,200"
+                     AbsoluteLayout.LayoutFlags="PositionProportional">
+
+                    <StackLayout>
+
+                        <Button Text="Photo" BackgroundColor="#77000000" BorderRadius="20"
+                                TextColor="White" BorderColor="Red" BorderWidth="3"
+                                Command="{Binding TakeAPictureCommand}">
+
+                            <Button.WidthRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="Android" Value="110"/>
+                                    <On Platform="iOS" Value="100"/>
+                                </OnPlatform>
+                            </Button.WidthRequest>
+
+                            <Button.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="Android" Value="20"/>
+                                    <On Platform="iOS" Value="25"/>
+                                </OnPlatform>
+                            </Button.FontSize>
+
+                        </Button>
+                    </StackLayout>
+
+                </StackLayout>
+
+            </StackLayout>
+
+
+
+        </AbsoluteLayout>
+
+
+    </AbsoluteLayout>
+
+
+</ContentPage>

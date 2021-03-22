@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="True"
+             x:Class="Controller.CameraSettings">
+
+    <StackLayout  Orientation="Vertical">
+        <Button x:Name="cam" Text="Enable camera" BorderRadius="20" TextColor="Black"
+                BackgroundColor="LightGray"
+                HorizontalOptions="Center" VerticalOptions="Start"
+                Clicked="CameraEnabled_Clicked">
+
+            <Button.FontSize>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="Android" Value="25"/>
+                    <On Platform="iOS" Value="25"/>
+                </OnPlatform>
+            </Button.FontSize>
+
+            <Button.WidthRequest>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="Android" Value="280"/>
+                    <On Platform="iOS" Value="200"/>
+                </OnPlatform>
+            </Button.WidthRequest>
+
+        </Button>
+        <Button x:Name="rec" Text="Start recording" BorderRadius="20" TextColor="Black"
+                BackgroundColor="LightGray"
+                HorizontalOptions="Center" VerticalOptions="Start"
+                Margin="0,10,0,10"
+                Clicked="StartRecording_Clicked">
+
+            <Button.FontSize>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="Android" Value="25"/>
+                    <On Platform="iOS" Value="25"/>
+                </OnPlatform>
+            </Button.FontSize>
+
+            <Button.WidthRequest>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="Android" Value="280"/>
+                    <On Platform="iOS" Value="200"/>
+                </OnPlatform>
+            </Button.WidthRequest>
+
+        </Button>
+        <Button x:Name="stream" Text="Start streaming" BorderRadius="20" TextColor="Black"
+                BackgroundColor="LightGray"
+                HorizontalOptions="Center" VerticalOptions="Start"
+                Clicked="StartStreaming_Clicked">
+
+            <Button.FontSize>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="Android" Value="25"/>
+                    <On Platform="iOS" Value="25"/>
+                </OnPlatform>
+            </Button.FontSize>
+
+            <Button.WidthRequest>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="Android" Value="280"/>
+                    <On Platform="iOS" Value="200"/>
+                </OnPlatform>
+            </Button.WidthRequest>
+
+        </Button>
+    </StackLayout>
+    
+</ContentPage>
